@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     private final String Tag = "==>";
-    private final String JSON_URL = "";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         new JsonTask(this).execute(JSON_URL);
+
 
     }
 
