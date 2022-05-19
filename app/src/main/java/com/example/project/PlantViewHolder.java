@@ -1,4 +1,16 @@
 package com.example.project;
 
-public class PlantViewHolder {
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class PlantViewHolder extends RecyclerView.ViewHolder {
+    public TextView name;
+
+    public PlantViewHolder(@NonNull View itemView) {
+        super(itemView);
+        name = itemView.findViewById(R.id.name);
+    }
 }
