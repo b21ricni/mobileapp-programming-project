@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     RecyclerView recyclerView;
 
@@ -26,4 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onPostExecute(String json) {
+
+    }
 }
