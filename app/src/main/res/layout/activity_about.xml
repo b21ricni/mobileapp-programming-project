@@ -6,20 +6,21 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/backtomain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="TextView" />
+        android:layout_marginBottom="20dp"
+        android:text="This app is created to enlight people of a few plants that is easy to take care of. These plants require low amount of maintenance"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/backtomain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Button" />
+        android:text="Back To Main" />
 </androidx.constraintlayout.widget.ConstraintLayout>
