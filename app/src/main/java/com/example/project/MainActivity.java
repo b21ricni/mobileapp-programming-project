@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Gson gson = new Gson();
         Type type = new TypeToken<List<Plants>>() {}.getType();
         List<Plants> listOfPlants = gson.fromJson(json, type);
-        Log.d("==>","Number of elements"+listOfPlants.size());
+        Log.d("==>","Plants amount: "+listOfPlants.size());
         Log.d("==>","Element 0 "+listOfPlants.get(0).toString());
 
     }
