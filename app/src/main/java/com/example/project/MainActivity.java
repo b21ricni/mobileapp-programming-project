@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     RecyclerView recyclerView;
 
     private final String Tag = "==>";
-    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=b21ricni";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Log.d("==>", json);
         Gson gson = new Gson();
         Type type = new TypeToken<List<Plants>>() {}.getType();
-        List<Plants> listOfMountains = gson.fromJson(json, type);
+        List<Plants> listOfPlants = gson.fromJson(json, type);
+        Log.d("==>","Number of elements"+listOfPlants.size());
+        Log.d("==>","Element 0 "+listOfPlants.get(0).toString());
 
     }
 }

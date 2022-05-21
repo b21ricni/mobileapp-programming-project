@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PlantAdapter extends RecyclerView.Adapter<PlantViewHolder> {
 
-    List<String> plants = Arrays.asList("plants1", "plants2","plants3","plants4","plants5" );
+    List<String> plants = Arrays.asList("Aloe Vera", "Dracaena","Succulents","Milk Tree Cactus","Snake plant" );
 
     @NonNull
     @Override
