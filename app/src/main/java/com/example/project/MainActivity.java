@@ -1,7 +1,10 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,6 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     RecyclerView recyclerView;
+    private Button aboutButton;
 
     private final String Tag = "==>";
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=b21ricni";
@@ -33,6 +37,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView =findViewById(R.id.recyclerview);
         recyclerView.setAdapter(new PlantAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        aboutButton = findViewById(R.id.aboutbutton);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>", "clicked about button");
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
