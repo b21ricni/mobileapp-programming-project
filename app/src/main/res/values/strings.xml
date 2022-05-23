@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Project</string>
+    <color name="BLUE">#00FFFF</color>
+    <color name="GREEN">#088F8F</color>
 </resources>

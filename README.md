@@ -20,7 +20,7 @@ med hjälp av  Intent intent = new Intent(MainActivity.this, AboutActivity.class
 startActivity(intent); och en click handler i aboutus som har click handler som stänger av activiten
 så den återgår till main activity. och avslutade med lite styling
 
-
+//SKRIV OM ATTRIBUTE OCH MAPPNING
 ```
 ::Main activity::
  private final String JSON_URL = "https://mobprog.webug.se/json-api?login=b21ricni";
