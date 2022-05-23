@@ -3,32 +3,61 @@
 
 **Skriv din rapport här!**
 
-_Du kan ta bort all text som finns sedan tidigare_.
+Första som gjordes var att skriva baskod för att hämta url i json, efter det så lades till seed code
+för jsontask, vilket innehåller task listener, url connection och en post execute listner.
+Efter det så lades seed code till för PlantAdapter, Plants och PlantViewHolder. Efter ett tag med
+problem att få appen att fungera så hittades att implements JsonTask.JsonTaskListener saknades i 
+main activity, när det fixades så lades till en post execute i main för string json och en 
+recyclerview i layout och som variable i main. Parsing data lades till i main efter detta
+tillsammans med recyclerview adapter funktion. I Plant adater skrevs en array lista  och kod för
+PlantViewHolder: public PlantViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType).
+I PlantViewHolder så skrevs kod för att hämta super itemview som extendas till RecycleView 
+viewholder. Efter detta så lades rätt url för att hämta plant data in, och en funktion för att hämta
+all plant data och hur många element som hämtas. Här så lades seedcode till för aboutActivity och 
+layout, men skapade fel, så datan blev inte automatiskt linkad i AndroidMainfest.xml så det var
+tvunget att fixas. efter detta så skapades en clickhandler i main för att gå från main till about us
+med hjälp av  Intent intent = new Intent(MainActivity.this, AboutActivity.class); 
+startActivity(intent); och en click handler i aboutus som har click handler som stänger av activiten
+så den återgår till main activity. och avslutade med lite styling
 
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+::Main activity::
+ private final String JSON_URL = "https://mobprog.webug.se/json-api?login=b21ricni";
+ ...
+ ...
+ aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+               public void onClick(View view) {
+                Log.d("==>", "clicked about button");
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+ ...
+ ...
+        Type type = new TypeToken<List<Plants>>() {}.getType();
+        List<Plants> listOfPlants = gson.fromJson(json, type);
+        Log.d("==>","Plants amount: "+listOfPlants.size());
+        Log.d("==>","Element 0 "+listOfPlants.get(0).toString());
+        
+ //Activity_main
+ <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:layout_editor_absoluteY="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        />
+        
+ //PlantAdapter
+ List<String> plants = Arrays.asList("Aloe Vera", "Dracaena","Succulents","Milk Tree Cactus","Snake plant" );
+ ...
+ ...
+ public PlantViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plant, parent, false);
+        return new PlantViewHolder(view);
     }
-}
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
