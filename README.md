@@ -57,7 +57,7 @@ så den återgår till main activity. och avslutade med lite styling
  public PlantViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plant, parent, false);
         return new PlantViewHolder(view);
-    }
+    }.Ra
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
