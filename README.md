@@ -20,7 +20,10 @@ med hjälp av  Intent intent = new Intent(MainActivity.this, AboutActivity.class
 startActivity(intent); och en click handler i aboutus som har click handler som stänger av activiten
 så den återgår till main activity. och avslutade med lite styling
 
-//SKRIV OM ATTRIBUTE OCH MAPPNING
+Den datan som valts att hämta och visa är plantornas, den datan som även finnas att hämta ut är var 
+plantorna ska plaseras(hur mycket sol) och hur mycket dem kostar. Åldes gruppen som är i åtanke är
+främst folk som nyligen har flyttat och vill skafa plantor men vet inte vart man kan börja, det är
+folk mellan 20-30år, men även äldre och yngre kan använda appen
 ```
 ::Main activity::
  private final String JSON_URL = "https://mobprog.webug.se/json-api?login=b21ricni";
