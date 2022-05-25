@@ -65,7 +65,8 @@ folk mellan 20-30år, men även äldre och yngre kan använda appen
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](Framsida.png)
+![](aboutsida.png)
 
 Läs gärna:
 
