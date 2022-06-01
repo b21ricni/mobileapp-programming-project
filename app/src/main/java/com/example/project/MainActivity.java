@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     RecyclerView recyclerView;
     private Button aboutButton;
+    private PlantAdapter adapter;
 
     private final String Tag = "==>";
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=b21ricni";
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         List<Plants> listOfPlants = gson.fromJson(json, type);
         Log.d("==>","Plants amount: "+listOfPlants.size());
         Log.d("==>","Element 0 "+listOfPlants.get(0).toString());
+        adapter.setplantsList(listOfPlants);
+
 
     }
 }
