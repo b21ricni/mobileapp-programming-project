@@ -26,8 +26,8 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantViewHolder> {
 
         Plants plants = plantsList.get(position);
 
-        holder.plantName.setText(plants.plantName);
-        holder.cost.setText(String.valueOf(plants.getcost()));
+        holder.name.setText(plants.name);
+        holder.cost.setText(String.valueOf(plants.getCost()));
         holder.location.setText(plants.location);
         holder.ID.setText(plants.getID());
     }

@@ -3,6 +3,8 @@ package com.example.project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,11 +17,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
-    RecyclerView recyclerView;
+    private ArrayList<Plants> plantList;
+    private RecyclerView recyclerView;
     private Button aboutButton;
     private PlantAdapter adapter;
 
@@ -35,9 +39,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         new JsonTask(this).execute(JSON_URL);
 
+
+        adapter = new PlantAdapter();
+        plantList = new ArrayList<Plants>();
         recyclerView =findViewById(R.id.recyclerview);
         recyclerView.setAdapter(new PlantAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        new JsonTask(this).execute(JSON_URL);
 
         aboutButton = findViewById(R.id.aboutbutton);
         aboutButton.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         });
     }
 
-
     @Override
     public void onPostExecute(String json) {
         Log.d("==>", json);
@@ -60,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Log.d("==>","Plants amount: "+listOfPlants.size());
         Log.d("==>","Element 0 "+listOfPlants.get(0).toString());
         adapter.setplantsList(listOfPlants);
-
-
+        adapter.notifyDataSetChanged();
     }
 }
